@@ -26,6 +26,12 @@ try {
 
             # Get the resource by ID
             $azureResource = Get-AzResource -ResourceId $resourceId -ErrorAction Stop
+            ## If any tag we have to remove
+            if ($azureResource.Tags.ContainsKey($tagKeyToRemove)) {
+                $azureResource.Tags.Remove($tagKeyToRemove)
+                $azureResource | Set-AzResource -Force
+                Write-Output "Removed tag '$tagKeyToRemove' from resource $($resource.Name)"
+            }
 
             # Add the tag to the resource
             $tags = $azureResource.Tags
