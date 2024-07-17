@@ -1,0 +1,10 @@
+{
+    "name": "Vivek Rai",
+    "age": 34,
+    "city": "Bengaluru \n Karnataka",
+    "skills": [
+        "Python",
+        "DevOps",
+        "Cloud"
+    ]
+}
